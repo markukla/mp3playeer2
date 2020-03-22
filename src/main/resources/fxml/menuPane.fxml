@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.javastart.Mp3Player.Controller.MenuPaneController">
+   <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+          <MenuBar>
+              <Menu mnemonicParsing="false" text="File">
+                  <MenuItem fx:id="fileMenuItem" mnemonicParsing="false" text="Open Mp3 File" />
+                  <MenuItem fx:id="dirMenuItem" mnemonicParsing="false" text="Open directory" />
+               <MenuItem fx:id="openPlayListMenuItem" mnemonicParsing="false" text="Open playlist" />
+               <MenuItem fx:id="savePlayListMenuItem" mnemonicParsing="false" text="save playlist" />
+                  <MenuItem fx:id="closeMenuItem" mnemonicParsing="false" text="Close" />
+               <MenuItem fx:id="removeSongFromPlaylist" mnemonicParsing="false" text="RemoveSong" />
+              </Menu>
+              <Menu mnemonicParsing="false" text="Help">
+                  <MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" text="About" />
+              </Menu>
+          </MenuBar>
+      </children>
+   </VBox>
+   <HBox layoutY="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+      <children>
+         <TextField id="search" fx:id="search" />
+         <Button id="openMp3File" fx:id="openMp3File" mnemonicParsing="false" text="" />
+         <Button id="removeSongs" fx:id="removeSongs" layoutX="159.0" layoutY="10.0" mnemonicParsing="false" text="" />
+         <Button id="addDirectory" fx:id="addDirectory" layoutX="211.0" layoutY="10.0" mnemonicParsing="false" text="" />
+         <Button id="savePlaylist" fx:id="savePlaylist" layoutX="263.0" layoutY="10.0" mnemonicParsing="false" text="" />
+         <Button id="openPlaylist" fx:id="openPlaylist" layoutX="315.0" layoutY="10.0" mnemonicParsing="false" text="" />
+      </children>
+   </HBox>
+</AnchorPane>

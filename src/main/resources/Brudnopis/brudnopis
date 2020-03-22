@@ -1,0 +1,100 @@
+
+
+public static List<Mp3Song> createMp3List(File dir) throws IOException, TagException, FileNotFoundException {
+
+
+        List<Mp3Song> songList = new ArrayList<>();
+
+        List<File> fileList = new ArrayList<>();
+        FXMLLoader loader = new FXMLLoader();
+        File playListNameFxml=new File("C:\\Users\\Marcin\\IdeaProjects\\mp3player\\src\\main\\java\\pl\\javastart\\Mp3Player\\Controller\\LoadingFileController.java");
+        System.out.println(playListNameFxml.toURI().toURL());
+
+        loader.setLocation(playListNameFxml.toURI().toURL());
+
+        Parent parent = null;
+        try {
+            parent = loader.load();
+            loadingFileController = loader.getController(); // zwraca obiekt kontrolera
+
+            System.out.println(loadingFileController);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene scene = new Scene(parent);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Wczytywanie plików");
+        createFileListFromComplexedDirectories(dir, fileList);
+        Label songPath=loadingFileController.getFilePathLabel();
+        ProgressBar progressBar=loadingFileController.getProgressBar();
+        double progress=0;
+
+
+
+
+
+        for (File f : fileList
+
+        ) {
+            try {
+                songPath.setText(f.getName());
+
+                String fileExtension = f.getName().substring(f.getName().lastIndexOf(".") + 1);
+
+                if (fileExtension.equals("mp3")&&createMp3Song(f)!=null) {
+                    progress=progress+(double)(1/fileList.size());
+                    progressBar.setProgress(progress);
+                    songList.add(createMp3Song(f));
+
+                }
+            } catch (FileNotFoundException fnf) {
+
+                continue;// przejdź do następnej iteracji
+            }
+
+        }
+        return songList;
+    }
+
+    Label currentTimeLabel=iconfiedController.getCurrentTimeLabel();
+    currentTimeLabel.textProperty().bindBidirectional(mainController.getControlPaneController().getCurrentTimeLabel().textProperty());
+    Label songLengthLabel=iconfiedController.getSongLengthLabel();
+    songLengthLabel.textProperty().bindBidirectional(mainController.getControlPaneController().getSongLengthLabel().textProperty());
+    currentTimeLabel.setText(currentTimeLabel.textProperty().get());
+            songLengthLabel.setText(songLengthLabel.textProperty().get());
+
+                    Task <List<Mp3Song>> creatingMpslistfromFileList = new Task<>() {
+
+
+                        @Override protected List<Mp3Song> call() throws Exception {
+                            List<Mp3Song> songListT = new ArrayList<>();
+                            int i;
+
+                            for ( i = 0; i < fileList.size(); i++) {
+                                try {
+
+                                    String fileExtension = fileList.get(i).getName().substring(fileList.get(i).getName().lastIndexOf(".") + 1);
+
+                                    if (fileExtension.equals("mp3") && createMp3Song(fileList.get(i)) != null) {
+
+                                        songListT.add(createMp3Song(fileList.get(i)));
+                                        updateProgress(i, fileList.size()-1);
+
+                                        //method to set labeltext
+                                        updateMessage("iteracja"+i);
+
+                                    }
+                                } catch (FileNotFoundException fnf) {
+
+                                    continue;// przejdź do następnej iteracji
+                                }
+                            }
+
+
+                            return songListT;
+                        }
+
+                    };

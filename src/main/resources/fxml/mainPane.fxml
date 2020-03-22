@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.javastart.Mp3Player.Controller.MainController">
+
+    <!-- fx: id dodaje pliki fxml do głownego pliku, a fx:id pozwala utworzyć zmienne z pomocniczych fxml i potem się do nich odwoływać-->
+    <top>
+        <fx:include fx:id="menuPane" source="menuPane.fxml" />
+    </top>
+    <center>
+        <fx:include fx:id="contentPane" source="contentPane.fxml" />
+
+    </center>
+    <bottom>
+        <fx:include fx:id="controlPane" source="controlPane.fxml" />
+    </bottom>
+
+
+</BorderPane>

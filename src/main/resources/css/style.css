@@ -1,0 +1,65 @@
+/* Tło przycisków */
+#play {
+	-fx-background-image: url("../img/play.png");  /*"../res/prev.png" oznacza, "przejdź do katalogu wyżej, a następnie do pliku /res/prev.png"*/
+}
+
+#previous {
+	-fx-background-image: url("../img/prev.png");
+}
+
+#next {
+	-fx-background-image: url("../img/next.png");
+}
+#playAllSongs {
+	-fx-background-image: url("../img/play_all_songs.png");
+
+}
+
+#replayPlaylist {
+	-fx-background-image: url("../img/repeat_playList.png");
+
+}
+#loopSong {
+	-fx-background-image: url("../img/petla.jpg");
+
+}
+#reverseTimeDisplay {
+    -fx-background-image: url("../img/changeTimeDisplay.png");
+
+}
+#volumeIcon  {
+    -fx-image: url("file:/C:/Users/Marcin/IdeaProjects/mp3player/src/main/resources/img/glosnik.jpeg"); // trzeba podać url (file:/C:/Users/Marcin/IdeaProjects/mp3player/src/main/resources/img/glosnik.jpeg)a nie ścieżkę typu (C:\Users\Marcin\IdeaProjects\mp3player\src\main\resources\img\glosnik.jpeg)=różni sie protokołem na początku, w tym wypadku file, ale może być też np http itp, podanie zwykłej ścieżki powoduje bląd illegal arguemnt exeption. URl można podejrzeć tworząc obiekt file i na nim metodę to URL lub to URI
+
+}
+
+#openMp3File {
+	-fx-background-image: url("../img/plus.png");
+}
+#removeSongs {
+	-fx-background-image: url("../img/removeSongs.png");
+}
+#addDirectory {
+	-fx-background-image: url("../img/addDirectory.jpg");
+}
+#savePlaylist {
+	-fx-background-image: url("../img/savePlaylist.png");
+}
+#openPlaylist {
+	-fx-background-image: url("../img/openPlaylist.jpg");
+}
+
+.button,
+.toggle-button {
+	-fx-background-repeat: no-repeat;
+	-fx-background-position: center;
+	-fx-background-size: 70% 70%;
+	-fx-background-color: transparent;
+	-fx-opacity: 40%;  /*przeźroczystość przycisków 100%=brak przeźroczystości*/
+}
+
+/* Przyciski po najechaniu */
+.button:hover,
+.toggle-button:hover,
+.toggle-button:selected {
+	-fx-opacity: 100%; /*po najechaniu przycisk traci przeźroczystość*/
+}
