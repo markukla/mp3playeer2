@@ -118,7 +118,7 @@ public class Mp3Parser implements Serializable {
 
             songList = progressTask.getValue();
             songList.forEach(System.out::println);
-           thread.notify();
+
 
         });
 
