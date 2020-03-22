@@ -122,11 +122,13 @@ public class Mp3Parser implements Serializable {
 
         });
 
-        createNewWidnowWithProgressBarofAddingMp3Song(progressTask);
+
 
         try {
+
             thread.start();
             thread.wait();
+            createNewWidnowWithProgressBarofAddingMp3Song(progressTask);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
