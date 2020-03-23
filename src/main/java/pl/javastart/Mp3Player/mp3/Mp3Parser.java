@@ -42,7 +42,6 @@ public class Mp3Parser implements Serializable {
     public Task<List<Mp3Song>> getProgressTaskG() {
         return progressTaskG;
     }
-
     private List<Mp3Song> songList;
     private Task<List<Mp3Song>> progressTaskG;
 
@@ -135,7 +134,7 @@ public class Mp3Parser implements Serializable {
 
         return songList;
     }
-
+/*nowy commit testowy*/
     private void createFileListFromComplexedDirectories(File dir, List<File> fileList) throws FileNotFoundException {
 
         if (dir.listFiles() != null) {
